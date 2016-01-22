@@ -8,7 +8,7 @@ module.exports = (function() {
     let size = array.length;
     for(let i = 1; i < size; i++) {
       for(let j = i; j > 0 && less(array, j, j-1); j--) {
-        exch(array, i, j);
+        exch(array, j, j-1);
       }
     }
   }
