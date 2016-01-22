@@ -3,16 +3,15 @@
 const _ = require('lodash');
 
 module.exports = (function() {
+
   function sort(array) {
     let size = array.length;
     for(let i = 0; i < size; i++) {
-      let min = i;
-      for(let j = i+1; j < size; j++) {
-        if (array[j] < array[min]) {
-          min = j;
+      for(let j = i + 1; j < size; j++) {
+        if (array[j] < array[i]) {
+          exch(array, i, j);
         }
       }
-      exch(array, i, min);
     }
   }
 
@@ -25,4 +24,5 @@ module.exports = (function() {
   return {
     sort: sort
   };
+
 })();
