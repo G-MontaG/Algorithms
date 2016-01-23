@@ -16,7 +16,7 @@ module.exports = (function() {
           exch(array, j, j-h);
         }
       }
-      h = h/3;
+      h = Math.floor(h/3);
     }
   }
 
