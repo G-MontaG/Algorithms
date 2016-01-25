@@ -2,23 +2,26 @@
 
 const _ = require('lodash');
 
-module.exports = (function() {
+module.exports = (function () {
 
   let aux = [];
 
   function _merge(array, lo, mid, hi) {
     let i = lo;
-    let j = mid+1;
+    let j = mid + 1;
     let aux = _.clone(array);
 
     _.forEach(aux, (value, index) => {
-      if(i > mid) {
+      if (i > mid) {
         array[index] = aux[j++];
-      } else if(j > hi) {
+      }
+      else if (j > hi) {
         array[index] = aux[i++];
-      } else if(_less(aux[j], aux[i])) {
+      }
+      else if (_less(aux[j], aux[i])) {
         array[index] = aux[j++];
-      } else {
+      }
+      else {
         array[index] = aux[i++];
       }
     });
@@ -30,9 +33,11 @@ module.exports = (function() {
   }
 
   function _sort(array, lo, hi) {
-    if(hi <= lo) { return null; }
+    if (hi <= lo) {
+      return null;
+    }
 
-    let mid = lo + (hi -lo)/2;
+    let mid = lo + (hi - lo) / 2;
 
     _sort(array, lo, mid);
     _sort(array, mid + 1, hi);

@@ -1,11 +1,11 @@
 "use strict";
 
-module.exports = (function() {
+module.exports = (function () {
 
   function sort(array) {
     let size = array.length;
-    for(let i = 0; i < size; i++) {
-      for(let j = i + 1; j < size; j++) {
+    for (let i = 0; i < size; i++) {
+      for (let j = i + 1; j < size; j++) {
         if (_less(array, j, i)) {
           _exch(array, i, j);
         }

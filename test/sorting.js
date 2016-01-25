@@ -9,8 +9,8 @@ const shell = require('../src/shell-sort');
 const merge = require('../src/merge-sort');
 
 function isSorted(array) {
-  for(let i = 1, size = array.length; i < size; i++) {
-    if (array[i] < array[i-1]) {
+  for (let i = 1, size = array.length; i < size; i++) {
+    if (array[i] < array[i - 1]) {
       return false;
     }
   }

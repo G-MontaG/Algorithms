@@ -1,20 +1,20 @@
 "use strict";
 
-module.exports = (function() {
+module.exports = (function () {
 
   function sort(array) {
     let size = array.length;
     let h = 1;
-    while(h < size/3) {
+    while (h < size / 3) {
       h = h * 3 + 1;
     }
-    while(h >= 1) {
-      for(let i = h; i < size; i++) {
-        for(let j = i; j >= h && _less(array, j, j-h); j = j-h) {
-          _exch(array, j, j-h);
+    while (h >= 1) {
+      for (let i = h; i < size; i++) {
+        for (let j = i; j >= h && _less(array, j, j - h); j = j - h) {
+          _exch(array, j, j - h);
         }
       }
-      h = Math.floor(h/3);
+      h = Math.floor(h / 3);
     }
   }
 
