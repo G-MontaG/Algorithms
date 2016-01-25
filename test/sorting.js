@@ -6,6 +6,7 @@ const assert = require('chai').assert;
 const selection = require('../src/selection-sort');
 const insertion = require('../src/insertion-sort');
 const shell = require('../src/shell-sort');
+const merge = require('../src/merge-sort');
 
 function isSorted(array) {
   for(let i = 1, size = array.length; i < size; i++) {
@@ -103,6 +104,30 @@ describe('Sorting algorithms', () => {
 
     it('sorting extra large array', () => {
       shell.sort(extraLargeArrayTest);
+      assert.isTrue(isSorted(extraLargeArrayTest));
+    });
+
+  });
+
+  describe('Merge sort', () => {
+
+    it('sorting small array', () => {
+      merge.sort(smallArrayTest);
+      assert.isTrue(isSorted(smallArrayTest));
+    });
+
+    it('sorting medium array', () => {
+      merge.sort(mediumArrayTest);
+      assert.isTrue(isSorted(mediumArrayTest));
+    });
+
+    it('sorting large array', () => {
+      merge.sort(largeArrayTest);
+      assert.isTrue(isSorted(largeArrayTest));
+    });
+
+    it('sorting extra large array', () => {
+      merge.sort(extraLargeArrayTest);
       assert.isTrue(isSorted(extraLargeArrayTest));
     });
 

@@ -1,7 +1,5 @@
 "use strict";
 
-const _ = require('lodash');
-
 module.exports = (function() {
 
   function sort(array) {
@@ -12,19 +10,19 @@ module.exports = (function() {
     }
     while(h >= 1) {
       for(let i = h; i < size; i++) {
-        for(let j = i; j >= h && less(array, j, j-h); j = j-h) {
-          exch(array, j, j-h);
+        for(let j = i; j >= h && _less(array, j, j-h); j = j-h) {
+          _exch(array, j, j-h);
         }
       }
       h = Math.floor(h/3);
     }
   }
 
-  function less(array, i, min) {
+  function _less(array, i, min) {
     return array[i] < array[min];
   }
 
-  function exch(array, i, min) {
+  function _exch(array, i, min) {
     let temp = array[i];
     array[i] = array[min];
     array[min] = temp;
