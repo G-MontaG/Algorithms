@@ -9,22 +9,22 @@ module.exports = (function () {
   function _merge(array, lo, mid, hi) {
     let i = lo;
     let j = mid + 1;
-    let aux = _.clone(array);
+    aux = _.slice(array, lo, hi);
 
-    _.forEach(aux, (value, index) => {
+    for (let k = lo; k <= hi; k++) {
       if (i > mid) {
-        array[index] = aux[j++];
+        array[k] = aux[j++];
       }
       else if (j > hi) {
-        array[index] = aux[i++];
+        array[k] = aux[i++];
       }
-      else if (_less(aux[j], aux[i])) {
-        array[index] = aux[j++];
+      else if (_less(array, j, i)) {
+        array[k] = aux[j++];
       }
       else {
-        array[index] = aux[i++];
+        array[k] = aux[i++];
       }
-    });
+    }
   }
 
   function sort(array) {
