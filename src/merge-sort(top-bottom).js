@@ -48,12 +48,6 @@ module.exports = (function () {
     return array[i] < array[min];
   }
 
-  //function _exch(array, i, min) {
-  //  let temp = array[i];
-  //  array[i] = array[min];
-  //  array[min] = temp;
-  //}
-
   return {
     sort: sort
   };

@@ -6,7 +6,8 @@ const assert = require('chai').assert;
 const selection = require('../src/selection-sort');
 const insertion = require('../src/insertion-sort');
 const shell = require('../src/shell-sort');
-const merge = require('../src/merge-sort');
+const mergeTopBottom = require('../src/merge-sort(top-bottom)');
+const mergeBottomTop = require('../src/merge-sort(bottom-top)');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
@@ -109,25 +110,49 @@ describe('Sorting algorithms', () => {
 
   });
 
-  describe('Merge sort', () => {
+  describe('Merge (top-bottom) sort', () => {
 
     it('sorting small array', () => {
-      merge.sort(smallArrayTest);
+      mergeTopBottom.sort(smallArrayTest);
       assert.isTrue(isSorted(smallArrayTest));
     });
 
     it('sorting medium array', () => {
-      merge.sort(mediumArrayTest);
+      mergeTopBottom.sort(mediumArrayTest);
       assert.isTrue(isSorted(mediumArrayTest));
     });
 
     it('sorting large array', () => {
-      merge.sort(largeArrayTest);
+      mergeTopBottom.sort(largeArrayTest);
       assert.isTrue(isSorted(largeArrayTest));
     });
 
     it('sorting extra large array', () => {
-      merge.sort(extraLargeArrayTest);
+      mergeTopBottom.sort(extraLargeArrayTest);
+      assert.isTrue(isSorted(extraLargeArrayTest));
+    });
+
+  });
+
+  describe('Merge (bottom-top) sort', () => {
+
+    it('sorting small array', () => {
+      mergeBottomTop.sort(smallArrayTest);
+      assert.isTrue(isSorted(smallArrayTest));
+    });
+
+    it('sorting medium array', () => {
+      mergeBottomTop.sort(mediumArrayTest);
+      assert.isTrue(isSorted(mediumArrayTest));
+    });
+
+    it('sorting large array', () => {
+      mergeBottomTop.sort(largeArrayTest);
+      assert.isTrue(isSorted(largeArrayTest));
+    });
+
+    it('sorting extra large array', () => {
+      mergeBottomTop.sort(extraLargeArrayTest);
       assert.isTrue(isSorted(extraLargeArrayTest));
     });
 
