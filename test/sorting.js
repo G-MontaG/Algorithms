@@ -8,6 +8,7 @@ const insertion = require('../src/insertion-sort');
 const shell = require('../src/shell-sort');
 const mergeTopBottom = require('../src/merge-sort(top-bottom)');
 const mergeBottomTop = require('../src/merge-sort(bottom-top)');
+const quick = require('../src/quick-sort');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
@@ -153,6 +154,30 @@ describe('Sorting algorithms', () => {
 
     it('sorting extra large array', () => {
       mergeBottomTop.sort(extraLargeArrayTest);
+      assert.isTrue(isSorted(extraLargeArrayTest));
+    });
+
+  });
+
+  describe('Quick sort', () => {
+
+    it('sorting small array', () => {
+      quick.sort(smallArrayTest);
+      assert.isTrue(isSorted(smallArrayTest));
+    });
+
+    it('sorting medium array', () => {
+      quick.sort(mediumArrayTest);
+      assert.isTrue(isSorted(mediumArrayTest));
+    });
+
+    it('sorting large array', () => {
+      quick.sort(largeArrayTest);
+      assert.isTrue(isSorted(largeArrayTest));
+    });
+
+    it('sorting extra large array', () => {
+      quick.sort(extraLargeArrayTest);
       assert.isTrue(isSorted(extraLargeArrayTest));
     });
 
