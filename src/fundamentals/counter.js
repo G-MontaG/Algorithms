@@ -2,9 +2,9 @@
 
 class Counter {
 
-  constructor(name, value) {
+  constructor(name, counter) {
     this._name = name || '';
-    this._counter = value || 0;
+    this._counter = counter || 0;
   }
 
   get name() {
