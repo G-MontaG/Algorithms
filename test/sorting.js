@@ -3,12 +3,12 @@
 const _ = require('lodash');
 const assert = require('chai').assert;
 
-const selection = require('../src/selection-sort');
-const insertion = require('../src/insertion-sort');
-const shell = require('../src/shell-sort');
-const mergeTopBottom = require('../src/merge-sort(top-bottom)');
-const mergeBottomTop = require('../src/merge-sort(bottom-top)');
-const quick = require('../src/quick-sort');
+const selection = require('../src/sorting/selection-sort');
+const insertion = require('../src/sorting/insertion-sort');
+const shell = require('../src/sorting/shell-sort');
+const mergeTopBottom = require('../src/sorting/merge-sort(top-bottom)');
+const mergeBottomTop = require('../src/sorting/merge-sort(bottom-top)');
+const quick = require('../src/sorting/quick-sort');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
