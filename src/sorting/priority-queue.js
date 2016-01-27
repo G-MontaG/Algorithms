@@ -40,7 +40,7 @@ module.exports = (function () {
   function _sink(k) {
     while (2 * k <= _size) {
       let j = 2 * k;
-      if (j < size && _less(_pq, j, j + 1)) {
+      if (j < _size && _less(_pq, j, j + 1)) {
         j++;
       }
       if (!_less(_pq, k, j)) {
