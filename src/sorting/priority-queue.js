@@ -6,7 +6,7 @@ module.exports = (function () {
   let _size = 0;
 
   function maxPQ(maxN) {
-    _pq = new Array([maxN + 1]);
+    _pq = new Array(maxN + 1);
   }
 
   function isEmpty() {
@@ -14,6 +14,7 @@ module.exports = (function () {
   }
 
   function size() {
+    console.log(_pq);
     return _size;
   }
 

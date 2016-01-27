@@ -86,7 +86,6 @@ describe('Sorting algorithms', () => {
 
   });
 
-
   describe('Shell sort', () => {
 
     it('sorting small array', () => {
