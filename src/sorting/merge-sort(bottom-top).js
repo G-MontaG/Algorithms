@@ -4,32 +4,32 @@ const _ = require('lodash');
 
 module.exports = (function () {
 
-  let aux = [];
+  let _aux = [];
 
   function _merge(array, lo, mid, hi) {
     let i = lo;
     let j = mid + 1;
-    aux = _.slice(array, lo, hi);
+    _aux = _.slice(array, lo, hi);
 
     for (let k = lo; k <= hi; k++) {
       if (i > mid) {
-        array[k] = aux[j++];
+        array[k] = _aux[j++];
       }
       else if (j > hi) {
-        array[k] = aux[i++];
+        array[k] = _aux[i++];
       }
       else if (_less(array, j, i)) {
-        array[k] = aux[j++];
+        array[k] = _aux[j++];
       }
       else {
-        array[k] = aux[i++];
+        array[k] = _aux[i++];
       }
     }
   }
 
   function sort(array) {
     let size = array.length;
-    aux = new Array(array.length);
+    _aux = new Array(array.length);
 
     for (let sz = 1; sz < size; sz = sz + sz) {
       for (let lo = 0; lo < size - sz; lo = lo + (sz + sz)) {
