@@ -61,7 +61,7 @@ describe('Fundamentals algorithms', () => {
     it('get accumulator mean as a string', () => {
       testAccumulator.addDataValue(0);
       testAccumulator.addDataValue(10);
-      assert.strictEqual(`Mean (2 values): 5`, testAccumulator.toString());
+      assert.strictEqual('Mean (2 values): 5', testAccumulator.toString());
     });
 
   });
