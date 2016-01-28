@@ -12,6 +12,9 @@ const testAccumulator = new Accumulator();
 const Vector = require('../src/fundamentals/vector');
 let testVector;
 
+const Bag = require('../src/fundamentals/bag');
+let testBag;
+
 describe('Fundamentals algorithms', () => {
 
 
@@ -72,7 +75,7 @@ describe('Fundamentals algorithms', () => {
   describe('Vector', () => {
 
     beforeEach(() => {
-      testVector = new Vector(3, [1, 2, 3]);
+      testVector = new Vector([1, 2, 3]);
     });
 
     it('get vector length', () => {
@@ -119,6 +122,32 @@ describe('Fundamentals algorithms', () => {
 
     it('get vector as string', () => {
       assert.deepEqual('{1 2 3}', testVector.toString());
+    });
+
+  });
+
+  describe('Bag', () => {
+
+    beforeEach(() => {
+      testBag = new Bag([1, 2, 'string', [1, 2, 3], {'property': 'value'}]);
+    });
+
+    it('get bag size', () => {
+      assert.strictEqual(5, testBag.size);
+    });
+
+    it('get isEmpty test', () => {
+      assert.strictEqual(false, testBag.isEmpty());
+    });
+
+    it('add items to bag', () => {
+      testBag.add(['new string', [2, 2, 2]]);
+      assert.deepEqual([1, 2, 'string', [1, 2, 3], {'property': 'value'}, 'new string', [2, 2, 2]], testBag.items);
+    });
+
+    it('clear bag', () => {
+      testBag.clear();
+      assert.deepEqual(0, testBag.size);
     });
 
   });

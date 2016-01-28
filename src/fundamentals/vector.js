@@ -3,8 +3,8 @@
 const _ = require('lodash');
 
 class Vector {
-  constructor(dimension, vector) {
-    this._dimension = dimension || vector.length || 0;
+  constructor(vector) {
+    this._dimension = vector.length || 0;
     this._vector = vector || [];
   }
 
@@ -25,7 +25,7 @@ class Vector {
       return null;
     }
     let sum = 0;
-    _.forEach(this._vector, function (item, index) {
+    _.forEach(this._vector, (item, index) => {
       sum = sum + (item * vector[index]);
     });
     return sum;
@@ -48,7 +48,7 @@ class Vector {
       return null;
     }
     let c = new Array(this._dimension);
-    _.forEach(this._vector, function (item, index) {
+    _.forEach(this._vector, (item, index) => {
       c[index] = item + vector[index];
     });
     return c;
@@ -59,7 +59,7 @@ class Vector {
       return null;
     }
     let c = new Array(this._dimension);
-    _.forEach(this._vector, function (item, index) {
+    _.forEach(this._vector, (item, index) => {
       c[index] = item - vector[index];
     });
     return c;
@@ -71,7 +71,7 @@ class Vector {
 
   times(alpha) {
     let c = new Array(this._dimension);
-    _.forEach(this._vector, function (item, index) {
+    _.forEach(this._vector, (item, index) => {
       c[index] = alpha * item;
     });
     return c;
@@ -79,7 +79,7 @@ class Vector {
 
   scale(alpha) {
     let c = new Array(this._dimension);
-    _.forEach(this._vector, function (item, index) {
+    _.forEach(this._vector, (item, index) => {
       c[index] = alpha * item;
     });
     return c;
@@ -94,7 +94,7 @@ class Vector {
 
   toString() {
     let s = '';
-    _.forEach(this._vector, function (item) {
+    _.forEach(this._vector, (item) => {
       s = s + (item + ' ');
     });
     s = _.trimEnd(s);
