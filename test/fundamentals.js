@@ -15,6 +15,9 @@ let testVector;
 const Bag = require('../src/fundamentals/bag');
 let testBag;
 
+const Queue = require('../src/fundamentals/queue');
+let testQueue;
+
 describe('Fundamentals algorithms', () => {
 
 
@@ -132,7 +135,7 @@ describe('Fundamentals algorithms', () => {
       testBag = new Bag([1, 2, 'string', [1, 2, 3], {'property': 'value'}]);
     });
 
-    it('get bag size', () => {
+    it('get bag size for bag', () => {
       assert.strictEqual(5, testBag.size);
     });
 
@@ -148,6 +151,41 @@ describe('Fundamentals algorithms', () => {
     it('clear bag', () => {
       testBag.clear();
       assert.deepEqual(0, testBag.size);
+    });
+
+  });
+
+  describe('Queue', () => {
+
+    beforeEach(() => {
+      testQueue = new Queue([2, 4, 1]);
+    });
+
+    it('get queue size', () => {
+      assert.strictEqual(3, testQueue.size);
+    });
+
+    it('get isEmpty test for queue', () => {
+      assert.strictEqual(false, testQueue.isEmpty());
+    });
+
+    it('add items to stack queue', () => {
+      testQueue.enqueue(3);
+      assert.deepEqual([2, 4, 1, 3], testQueue.items);
+    });
+
+    it('remove items from stack queue', () => {
+      testQueue.dequeue();
+      assert.deepEqual([2, 4], testQueue.items);
+    });
+
+    it('get item from queue', () => {
+      assert.strictEqual(2, testQueue.peek());
+    });
+
+    it('clear queue', () => {
+      testQueue.clear();
+      assert.deepEqual(0, testQueue.size);
     });
 
   });
