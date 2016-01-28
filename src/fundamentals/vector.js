@@ -16,26 +16,31 @@ class Vector {
     return this._dimension;
   }
 
+  get vector() {
+    return this._vector;
+  }
+
   dot(vector) {
     if(this._dimension !== vector.length) {
       return null;
     }
-    let sum = 0.0;
-    _.forEach(this._dimension, function (index, item) {
+    let sum = 0;
+    _.forEach(this._vector, function (item, index) {
       sum = sum + (item * vector[index]);
     });
     return sum;
   }
 
-  magnitude() {
-    return Math.sqrt(this.dot(this._vector));
+  magnitude(vector) {
+    let m = vector || this._vector;
+    return Math.sqrt(this.dot(m));
   }
 
   distanceTo(vector) {
     if(this._dimension !== vector.length) {
       return null;
     }
-    return this.minus(this._vector).magnitude();
+    return this.magnitude(this.minus(vector));
   }
 
   plus(vector) {
@@ -43,13 +48,60 @@ class Vector {
       return null;
     }
     let c = new Array(this._dimension);
-    _.forEach(this._dimension, function (index, item) {
+    _.forEach(this._vector, function (item, index) {
       c[index] = item + vector[index];
     });
     return c;
   }
 
+  minus(vector) {
+    if(this._dimension !== vector.length) {
+      return null;
+    }
+    let c = new Array(this._dimension);
+    _.forEach(this._vector, function (item, index) {
+      c[index] = item - vector[index];
+    });
+    return c;
+  }
 
+  cartesian(index) {
+    return this._vector[index];
+  }
+
+  times(alpha) {
+    let c = new Array(this._dimension);
+    _.forEach(this._vector, function (item, index) {
+      c[index] = alpha * item;
+    });
+    return c;
+  }
+
+  scale(alpha) {
+    let c = new Array(this._dimension);
+    _.forEach(this._vector, function (item, index) {
+      c[index] = alpha * item;
+    });
+    return c;
+  }
+
+  direction() {
+    if (this.magnitude() === 0) {
+      return null;
+    }
+    return this.times(1 / this.magnitude());
+  }
+
+  toString() {
+    let s = '';
+    _.forEach(this._vector, function (item) {
+      s = s + (item + ' ');
+    });
+    s = _.trimEnd(s);
+    s = _.padStart(s, s.length + 1, '{');
+    s = _.padEnd(s, s.length + 1, '}');
+    return s;
+  }
 
 }
 
