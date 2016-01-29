@@ -10,12 +10,12 @@ module.exports = (function () {
     let v = array[lo];
 
     while (true) {
-      while (_less(array[++i], v)) {
+      while (array[++i] < v) {
         if (i === hi) {
           break;
         }
       }
-      while (_less(v, array[--j])) {
+      while (v < array[--j]) {
         if (j === lo) {
           break;
         }
@@ -42,10 +42,6 @@ module.exports = (function () {
 
     _sort(array, lo, j - 1);
     _sort(array, j + 1, hi);
-  }
-
-  function _less(array, i, min) {
-    return array[i] < array[min];
   }
 
   function _exch(array, i, min) {
