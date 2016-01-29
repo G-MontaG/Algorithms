@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 
+// Set is default implementation of bag in ES6
 class Bag {
 
   constructor(items) {

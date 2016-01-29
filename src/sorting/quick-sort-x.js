@@ -16,8 +16,8 @@ module.exports = (function () {
     if (size <= _cutoff) {
       insertion.sort(array, lo, hi);
     } else {
-      let eps = size/8;
-      let mid = lo + size/2;
+      let eps = Math.floor(size/8);
+      let mid = Math.floor(lo + size/2);
       let m1 = _median3(array, lo, lo + eps, lo + eps + eps);
       let m2 = _median3(array, mid - eps, mid, mid + eps);
       let m3 = _median3(array, hi - eps - eps, hi - eps, hi);
@@ -44,7 +44,7 @@ module.exports = (function () {
         }
       }
 
-      if (i === j && (array[i] === v)) {
+      if (i === j && array[i] === v) {
         _exch(array, ++p, i);
       }
 

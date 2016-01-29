@@ -212,6 +212,7 @@ describe('Sorting algorithms', () => {
 
     it('sorting small array', () => {
       quickX.sort(smallArrayTest);
+      console.log(smallArrayTest);
       assert.isTrue(isSorted(smallArrayTest));
     });
 
