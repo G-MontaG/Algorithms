@@ -1,7 +1,5 @@
 "use strict";
 
-const _ = require('lodash');
-
 module.exports = (function () {
 
   function _partition(array, lo, hi) {

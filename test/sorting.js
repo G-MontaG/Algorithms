@@ -10,6 +10,7 @@ const mergeTopBottom = require('../src/sorting/merge-sort(top-bottom)');
 const mergeBottomTop = require('../src/sorting/merge-sort(bottom-top)');
 const quick = require('../src/sorting/quick-sort');
 const quick3way = require('../src/sorting/quick-sort-3way');
+const quickX = require('../src/sorting/quick-sort-x');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
@@ -202,6 +203,30 @@ describe('Sorting algorithms', () => {
 
     it('sorting extra large array', () => {
       quick3way.sort(extraLargeArrayTest);
+      assert.isTrue(isSorted(extraLargeArrayTest));
+    });
+
+  });
+
+  describe('Quick X sort', () => {
+
+    it('sorting small array', () => {
+      quickX.sort(smallArrayTest);
+      assert.isTrue(isSorted(smallArrayTest));
+    });
+
+    it('sorting medium array', () => {
+      quickX.sort(mediumArrayTest);
+      assert.isTrue(isSorted(mediumArrayTest));
+    });
+
+    it('sorting large array', () => {
+      quickX.sort(largeArrayTest);
+      assert.isTrue(isSorted(largeArrayTest));
+    });
+
+    it('sorting extra large array', () => {
+      quickX.sort(extraLargeArrayTest);
       assert.isTrue(isSorted(extraLargeArrayTest));
     });
 
