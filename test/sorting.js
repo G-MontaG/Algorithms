@@ -9,6 +9,7 @@ const shell = require('../src/sorting/shell-sort');
 const mergeTopBottom = require('../src/sorting/merge-sort(top-bottom)');
 const mergeBottomTop = require('../src/sorting/merge-sort(bottom-top)');
 const quick = require('../src/sorting/quick-sort');
+const quick3way = require('../src/sorting/quick-sort-3way');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
@@ -19,10 +20,10 @@ function isSorted(array) {
   return true;
 }
 
-let smallArray = _.map(new Array(100), () => _.random(9));
-let mediumArray = _.map(new Array(1000), () => _.random(9));
-let largeArray = _.map(new Array(10000), () => _.random(9));
-let extraLargeArray = _.map(new Array(50000), () => _.random(9));
+let smallArray = _.map(new Array(1000), () => _.random(9));
+let mediumArray = _.map(new Array(10000), () => _.random(9));
+let largeArray = _.map(new Array(50000), () => _.random(9));
+let extraLargeArray = _.map(new Array(100000), () => _.random(9));
 
 describe('Sorting algorithms', () => {
 
@@ -177,6 +178,30 @@ describe('Sorting algorithms', () => {
 
     it('sorting extra large array', () => {
       quick.sort(extraLargeArrayTest);
+      assert.isTrue(isSorted(extraLargeArrayTest));
+    });
+
+  });
+
+  describe('Quick 3 way sort', () => {
+
+    it('sorting small array', () => {
+      quick3way.sort(smallArrayTest);
+      assert.isTrue(isSorted(smallArrayTest));
+    });
+
+    it('sorting medium array', () => {
+      quick3way.sort(mediumArrayTest);
+      assert.isTrue(isSorted(mediumArrayTest));
+    });
+
+    it('sorting large array', () => {
+      quick3way.sort(largeArrayTest);
+      assert.isTrue(isSorted(largeArrayTest));
+    });
+
+    it('sorting extra large array', () => {
+      quick3way.sort(extraLargeArrayTest);
       assert.isTrue(isSorted(extraLargeArrayTest));
     });
 
