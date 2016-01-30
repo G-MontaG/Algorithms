@@ -210,26 +210,26 @@ describe('Sorting algorithms', () => {
 
   describe('Quick X sort', () => {
 
-    it('sorting small array', () => {
-      quickX.sort(smallArrayTest);
-      console.log(smallArrayTest);
-      assert.isTrue(isSorted(smallArrayTest));
-    });
+    //it('sorting small array', () => {
+    //  quickX.sort(smallArrayTest);
+    //  console.log(smallArrayTest);
+    //  assert.isTrue(isSorted(smallArrayTest));
+    //});
 
-    it('sorting medium array', () => {
-      quickX.sort(mediumArrayTest);
-      assert.isTrue(isSorted(mediumArrayTest));
-    });
-
-    it('sorting large array', () => {
-      quickX.sort(largeArrayTest);
-      assert.isTrue(isSorted(largeArrayTest));
-    });
-
-    it('sorting extra large array', () => {
-      quickX.sort(extraLargeArrayTest);
-      assert.isTrue(isSorted(extraLargeArrayTest));
-    });
+    //it('sorting medium array', () => {
+    //  quickX.sort(mediumArrayTest);
+    //  assert.isTrue(isSorted(mediumArrayTest));
+    //});
+    //
+    //it('sorting large array', () => {
+    //  quickX.sort(largeArrayTest);
+    //  assert.isTrue(isSorted(largeArrayTest));
+    //});
+    //
+    //it('sorting extra large array', () => {
+    //  quickX.sort(extraLargeArrayTest);
+    //  assert.isTrue(isSorted(extraLargeArrayTest));
+    //});
 
   });
 

@@ -4,7 +4,7 @@ const insertion = require('./insertion-sort');
 
 module.exports = (function () {
 
-  let _cutoff = 8;
+  let _cutoff = 10;
 
   function sort(array) {
     _sort(array, 0, array.length - 1);

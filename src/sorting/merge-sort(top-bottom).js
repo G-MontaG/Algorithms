@@ -1,5 +1,7 @@
 "use strict";
 
+// Top-down mergesort uses between 1⁄2*N*lgN and N*lgN compares to sort any array of length N.
+// Top-down mergesort uses at most 6*N*lgN array accesses to sort an array of length N.
 const _ = require('lodash');
 
 module.exports = (function () {

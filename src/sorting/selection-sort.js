@@ -1,5 +1,6 @@
 "use strict";
 
+// Selection sort uses ~(N^2/2) compares and N exchanges to sort an array of length N.
 module.exports = (function () {
 
   function sort(array) {

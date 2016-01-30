@@ -1,5 +1,8 @@
 "use strict";
 
+// Quicksort uses ~(2*N*lnN) compares (and one-sixth that many exchanges)
+// on the average to sort an array of length N with distinct keys.
+// Quicksort uses ~(N^2/2) compares in the worst case, but random shuffling protects against this case.
 module.exports = (function () {
 
   function _partition(array, lo, hi) {
@@ -28,6 +31,7 @@ module.exports = (function () {
   }
 
   function sort(array) {
+    array.shuffle();
     _sort(array, 0, array.length - 1);
   }
 

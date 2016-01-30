@@ -1,8 +1,11 @@
 "use strict";
 
+// Quicksort with 3-way partitioning uses ~(2*ln2)*N*H compares to sort N items,
+// where H is the Shannon entropy, defined from the frequencies of key values.
 module.exports = (function () {
 
   function sort(array) {
+    array.shuffle();
     _sort(array, 0, array.length - 1);
   }
 

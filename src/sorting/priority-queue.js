@@ -1,5 +1,7 @@
 "use strict";
 
+// insert - N
+// remove maximum - 1
 module.exports = (function () {
 
   let _pq = [];

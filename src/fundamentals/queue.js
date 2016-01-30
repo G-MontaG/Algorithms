@@ -2,6 +2,7 @@
 
 const _ = require('lodash');
 
+// Array is default implementation of stack in js
 class Queue {
 
   constructor(items) {
