@@ -239,7 +239,7 @@ describe('Sorting algorithms', () => {
     let maxPQ;
 
     beforeEach(() => {
-      maxPQ = new MaxPQ([2, 4, 1]);
+      maxPQ = new MaxPQ([6, 1, 8]);
     });
 
     it('get queue size', () => {
@@ -251,28 +251,18 @@ describe('Sorting algorithms', () => {
     });
 
     it('get item with max priority from queue', () => {
-      assert.strictEqual(4, maxPQ.max);
+      assert.strictEqual(8, maxPQ.max);
     });
 
     it('insert item to queue', () => {
-      maxPQ.insert(3);
-      assert.strictEqual(4, maxPQ.max);
+      maxPQ.insert(10);
+      assert.strictEqual(10, maxPQ.max);
     });
 
-    //it('sorting medium array', () => {
-    //  quickX.sort(mediumArrayTest);
-    //  assert.isTrue(isSorted(mediumArrayTest));
-    //});
-    //
-    //it('sorting large array', () => {
-    //  quickX.sort(largeArrayTest);
-    //  assert.isTrue(isSorted(largeArrayTest));
-    //});
-    //
-    //it('sorting extra large array', () => {
-    //  quickX.sort(extraLargeArrayTest);
-    //  assert.isTrue(isSorted(extraLargeArrayTest));
-    //});
+    it('delete max item from queue', () => {
+      maxPQ.deleteMax();
+      assert.strictEqual(6, maxPQ.max);
+    });
 
   });
 

@@ -10,10 +10,12 @@ class MaxPQ {
     if (!queue) {
       this._size = 0;
     } else {
-      this._pq = queue;
       this._size = queue.length;
+      for (let i = 0; i < this._size; i++) {
+        this._pq[i + 1] = queue[i];
+      }
 
-      for (let k = this._size / 2; k >= 1; k--) {
+      for (let k = Math.floor(this._size / 2); k >= 1; k--) {
         this._sink(k);
       }
     }
@@ -36,7 +38,7 @@ class MaxPQ {
     this._swim(this._size);
   }
 
-  delMax() {
+  deleteMax() {
     let max = this._pq[1];
     this._exch(1, this._size--);
     this._sink(1);
