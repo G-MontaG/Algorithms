@@ -6,8 +6,13 @@ const _ = require('lodash');
 class Bag {
 
   constructor(items) {
-    this._counter = items.length || 0;
-    this._items = items || [];
+    if (!items) {
+      this._counter = 0;
+      this._items = [];
+    } else {
+      this._counter = items.length;
+      this._items = _.clone(items);
+    }
   }
 
   isEmpty() {

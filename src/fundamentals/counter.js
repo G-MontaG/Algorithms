@@ -3,8 +3,17 @@
 class Counter {
 
   constructor(name, counter) {
-    this._name = name || '';
-    this._counter = counter || 0;
+    if (!name) {
+      this._name = '';
+    } else {
+      this._name = name;
+    }
+
+    if (!counter) {
+      this._counter = 0;
+    } else {
+      this._counter = counter;
+    }
   }
 
   get name() {

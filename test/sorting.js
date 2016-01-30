@@ -11,6 +11,7 @@ const mergeBottomTop = require('../src/sorting/merge-sort(bottom-top)');
 const quick = require('../src/sorting/quick-sort');
 const quick3way = require('../src/sorting/quick-sort-3way');
 const quickX = require('../src/sorting/quick-sort-x');
+const MaxPQ = require('../src/sorting/max-pq');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
@@ -215,6 +216,48 @@ describe('Sorting algorithms', () => {
     //  console.log(smallArrayTest);
     //  assert.isTrue(isSorted(smallArrayTest));
     //});
+
+    //it('sorting medium array', () => {
+    //  quickX.sort(mediumArrayTest);
+    //  assert.isTrue(isSorted(mediumArrayTest));
+    //});
+    //
+    //it('sorting large array', () => {
+    //  quickX.sort(largeArrayTest);
+    //  assert.isTrue(isSorted(largeArrayTest));
+    //});
+    //
+    //it('sorting extra large array', () => {
+    //  quickX.sort(extraLargeArrayTest);
+    //  assert.isTrue(isSorted(extraLargeArrayTest));
+    //});
+
+  });
+
+  describe('Max priority queue sort', () => {
+
+    let maxPQ;
+
+    beforeEach(() => {
+      maxPQ = new MaxPQ([2, 4, 1]);
+    });
+
+    it('get queue size', () => {
+      assert.strictEqual(3, maxPQ.size);
+    });
+
+    it('get isEmpty test for queue', () => {
+      assert.strictEqual(false, maxPQ.isEmpty());
+    });
+
+    it('get item with max priority from queue', () => {
+      assert.strictEqual(4, maxPQ.max);
+    });
+
+    it('insert item to queue', () => {
+      maxPQ.insert(3);
+      assert.strictEqual(4, maxPQ.max);
+    });
 
     //it('sorting medium array', () => {
     //  quickX.sort(mediumArrayTest);

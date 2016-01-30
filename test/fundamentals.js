@@ -4,27 +4,19 @@ const _ = require('lodash');
 const assert = require('chai').assert;
 
 const Counter = require('../src/fundamentals/counter');
-const testCounter = new Counter('Test counter', 0);
-
 const Accumulator = require('../src/fundamentals/accumulator');
-const testAccumulator = new Accumulator();
-
 const Vector = require('../src/fundamentals/vector');
-let testVector;
-
 const Bag = require('../src/fundamentals/bag');
-let testBag;
-
 const Queue = require('../src/fundamentals/queue');
-let testQueue;
 
 describe('Fundamentals algorithms', () => {
 
-
   describe('Counter', () => {
 
+    let testCounter;
+
     beforeEach(() => {
-      testCounter.counter = 0;
+      testCounter = new Counter('Test counter', 0);
     });
 
     it('count 3 calls', () => {
@@ -57,8 +49,10 @@ describe('Fundamentals algorithms', () => {
 
   describe('Accumulator', () => {
 
+    let testAccumulator;
+
     beforeEach(() => {
-      testAccumulator.reset();
+      testAccumulator = new Accumulator();
     });
 
     it('get accumulator mean', () => {
@@ -76,6 +70,8 @@ describe('Fundamentals algorithms', () => {
   });
 
   describe('Vector', () => {
+
+    let testVector;
 
     beforeEach(() => {
       testVector = new Vector([1, 2, 3]);
@@ -131,6 +127,8 @@ describe('Fundamentals algorithms', () => {
 
   describe('Bag', () => {
 
+    let testBag;
+
     beforeEach(() => {
       testBag = new Bag([1, 2, 'string', [1, 2, 3], {'property': 'value'}]);
     });
@@ -156,6 +154,8 @@ describe('Fundamentals algorithms', () => {
   });
 
   describe('Queue', () => {
+
+    let testQueue;
 
     beforeEach(() => {
       testQueue = new Queue([2, 4, 1]);

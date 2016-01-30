@@ -3,8 +3,13 @@
 class Accumulator {
 
   constructor(total, counter) {
-    this._total = total || 0;
-    this._counter = counter || 0;
+    if (!total) {
+      this._total = 0;
+      this._counter = 0;
+    } else {
+      this._total = total;
+      this._counter = counter;
+    }
   }
 
   addDataValue(value) {

@@ -4,8 +4,13 @@ const _ = require('lodash');
 
 class Vector {
   constructor(vector) {
-    this._dimension = vector.length || 0;
-    this._vector = vector || [];
+    if (!vector) {
+      this._dimension = 0;
+      this._vector = [];
+    } else {
+      this._dimension = vector.length;
+      this._vector = _.clone(vector);
+    }
   }
 
   get length() {
