@@ -5,7 +5,6 @@
 module.exports = (function () {
 
   function sort(array) {
-    array.shuffle();
     _sort(array, 0, array.length - 1);
   }
 
