@@ -5,7 +5,7 @@ module.exports = (function () {
 
   function sort(array) {
     let size = array.length;
-    for (let k = size / 2; k >= 1; k--) {
+    for (let k = Math.floor(size / 2); k >= 1; k--) {
       _sink(array, k, size);
     }
     while (size > 1) {
