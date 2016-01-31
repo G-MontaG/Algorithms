@@ -30,7 +30,6 @@ module.exports = (function () {
   }
 
   function sort(array) {
-    _aux = new Array(array.length);
     _sort(array, 0, array.length - 1);
   }
 

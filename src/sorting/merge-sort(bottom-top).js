@@ -31,7 +31,6 @@ module.exports = (function () {
 
   function sort(array) {
     let size = array.length;
-    _aux = new Array(array.length);
 
     for (let sz = 1; sz < size; sz = sz + sz) {
       for (let lo = 0; lo < size - sz; lo = lo + (sz + sz)) {

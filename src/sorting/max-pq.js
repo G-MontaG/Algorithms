@@ -5,7 +5,6 @@
 class MaxPQ {
   constructor(queue) {
     this._pq = [];
-    this._size = 0;
 
     if (!queue) {
       this._size = 0;
