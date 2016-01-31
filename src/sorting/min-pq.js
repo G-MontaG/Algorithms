@@ -1,8 +1,8 @@
 "use strict";
 
-// insert - 1+lgN
-// remove maximum - 2*lgN
-class MaxPQ {
+// insert - N
+// remove maximum - 1
+class MinPQ {
   constructor(queue) {
     this._pq = [];
     this._size = 0;
@@ -14,7 +14,6 @@ class MaxPQ {
       for (let i = 0; i < this._size; i++) {
         this._pq[i + 1] = queue[i];
       }
-
       for (let k = Math.floor(this._size / 2); k >= 1; k--) {
         this._sink(k);
       }
@@ -29,7 +28,7 @@ class MaxPQ {
     return this._size;
   }
 
-  get max() {
+  get min() {
     return this._pq[1];
   }
 
@@ -38,7 +37,7 @@ class MaxPQ {
     this._swim(this._size);
   }
 
-  deleteMax() {
+  deleteMin() {
     let max = this._pq[1];
     this._exch(1, this._size--);
     this._sink(1);
@@ -47,7 +46,7 @@ class MaxPQ {
   }
 
   _swim(k) {
-    while (k > 1 && this._less(Math.floor(k / 2), k)) {
+    while (k > 1 && this._greater(Math.floor(k / 2), k)) {
       this._exch(k, Math.floor(k / 2));
       k = Math.floor(k / 2);
     }
@@ -56,10 +55,10 @@ class MaxPQ {
   _sink(k) {
     while (2 * k <= this._size) {
       let j = 2 * k;
-      if (j < this._size && this._less(j, j + 1)) {
+      if (j < this._size && this._greater(j, j + 1)) {
         j++;
       }
-      if (!this._less(k, j)) {
+      if (!this._greater(k, j)) {
         break;
       }
       this._exch(k, j);
@@ -67,8 +66,8 @@ class MaxPQ {
     }
   }
 
-  _less(i, j) {
-    return this._pq[i] < this._pq[j];
+  _greater(i, j) {
+    return this._pq[i] > this._pq[j];
   }
 
   _exch(i, j) {
@@ -78,4 +77,4 @@ class MaxPQ {
   }
 }
 
-module.exports = MaxPQ;
+module.exports = MinPQ;

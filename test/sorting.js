@@ -12,6 +12,8 @@ const quick = require('../src/sorting/quick-sort');
 const quick3way = require('../src/sorting/quick-sort-3way');
 const quickX = require('../src/sorting/quick-sort-x');
 const MaxPQ = require('../src/sorting/max-pq');
+const MinPQ = require('../src/sorting/min-pq');
+const heapSort = require('../src/sorting/heap-sort');
 
 function isSorted(array) {
   for (let i = 1, size = array.length; i < size; i++) {
@@ -262,6 +264,62 @@ describe('Sorting algorithms', () => {
     it('delete max item from queue', () => {
       maxPQ.deleteMax();
       assert.strictEqual(6, maxPQ.max);
+    });
+
+  });
+
+  describe('Min priority queue sort', () => {
+
+    let minPQ;
+
+    beforeEach(() => {
+      minPQ = new MinPQ([6, 2, 8]);
+    });
+
+    it('get queue size', () => {
+      assert.strictEqual(3, minPQ.size);
+    });
+
+    it('get isEmpty test for queue', () => {
+      assert.strictEqual(false, minPQ.isEmpty());
+    });
+
+    it('get item with min priority from queue', () => {
+      assert.strictEqual(2, minPQ.min);
+    });
+
+    it('insert item to queue', () => {
+      minPQ.insert(1);
+      assert.strictEqual(1, minPQ.min);
+    });
+
+    it('delete min item from queue', () => {
+      minPQ.deleteMin();
+      assert.strictEqual(6, minPQ.min);
+    });
+
+  });
+
+  describe('Heap sort', () => {
+
+    it('sorting small array', () => {
+      heapSort.sort(smallArrayTest);
+      assert.isTrue(isSorted(smallArrayTest));
+    });
+
+    it('sorting medium array', () => {
+      heapSort.sort(mediumArrayTest);
+      assert.isTrue(isSorted(mediumArrayTest));
+    });
+
+    it('sorting large array', () => {
+      heapSort.sort(largeArrayTest);
+      assert.isTrue(isSorted(largeArrayTest));
+    });
+
+    it('sorting extra large array', () => {
+      heapSort.sort(extraLargeArrayTest);
+      assert.isTrue(isSorted(extraLargeArrayTest));
     });
 
   });
