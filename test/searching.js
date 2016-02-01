@@ -8,15 +8,12 @@ const SequentialSearch = require('../src/searching/sequential-search');
 
 describe('Searching algorithms', () => {
 
-  describe('Symbol table implementation with sequential search in an unordered linked list of key-value pairs.', () => {
+  describe('Symbol table', () => {
 
     let symbolTable;
 
     beforeEach(() => {
-      symbolTable = new SymbolTable([{
-        key: '2',
-        value: 'second'
-      }]);
+      symbolTable = new SymbolTable([['2', 'second']]);
     });
 
     it('get value from table', () => {
@@ -56,10 +53,7 @@ describe('Searching algorithms', () => {
     let sequentialSearch;
 
     beforeEach(() => {
-      sequentialSearch = new SequentialSearch([{
-        key: '2',
-        value: 'second'
-      }]);
+      sequentialSearch = new SequentialSearch([['2', 'second'], ['3', 'third']]);
     });
 
     it('get/put value from table by key', () => {
@@ -75,7 +69,7 @@ describe('Searching algorithms', () => {
 
     it('get keys from table', () => {
       sequentialSearch.put('1', 'first');
-      assert.deepEqual(['2', '1'], sequentialSearch.keys);
+      assert.deepEqual(['2', '3', '1'], sequentialSearch.keys);
     });
 
   });

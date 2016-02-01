@@ -6,19 +6,15 @@ const _ = require('lodash');
 class SequentialSearch {
 
   constructor(items) {
-    this._item = [{
-      key: '',
-      value: ''
-    }];
+    this._item = [];
 
     if (!items) {
       this._size = 0;
     } else {
-      this._size = this._item.length;
-      _.forEach(items, (item, index) => {
-        this._item[index].key = item.key;
-        this._item[index].value = item.value;
+      _.forEach(items, (item) => {
+        this._item.push(item);
       });
+      this._size = this._item.length;
     }
   }
 
@@ -40,8 +36,8 @@ class SequentialSearch {
     } else {
       let getValue = null;
       _.map(this._item, (item) => {
-        if (key === item.key) {
-          getValue = item.value;
+        if (key === item[0]) {
+          getValue = item[1];
         }
       });
       return getValue;
@@ -54,17 +50,14 @@ class SequentialSearch {
     } else {
       let findKey = false;
       _.map(this._item, (item) => {
-        if (key === item.key) {
-          item.value = value;
+        if (key === item[0]) {
+          item[1] = value;
           findKey = true;
         }
       });
 
       if (!findKey) {
-        this._item[this._size++] = {
-          key: key,
-          value: value
-        };
+        this._item[this._size++] = [key, value];
       }
       return true;
     }
@@ -75,14 +68,14 @@ class SequentialSearch {
       return null;
     } else {
       _.remove(this._item, (item) => {
-        return item.key === key;
+        return item[0] === key;
       });
     }
   }
 
   get keys() {
     return _.map(this._item, (item) => {
-      return item.key;
+      return item[0];
     });
   }
 
