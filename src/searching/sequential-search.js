@@ -31,18 +31,14 @@ class SequentialSearch {
   }
 
   contains(key) {
-    if (!key) {
-      return null;
-    } else {
-      return this.get(key) !== null;
-    }
+    return this.get(key) !== null;
   }
 
   get(key) {
     if (!key) {
       return null;
     } else {
-      let getValue = '';
+      let getValue = null;
       _.map(this._item, (item) => {
         if (key === item.key) {
           getValue = item.value;
@@ -70,9 +66,24 @@ class SequentialSearch {
           value: value
         };
       }
-
       return true;
     }
+  }
+
+  delete(key) {
+    if (!key) {
+      return null;
+    } else {
+      _.remove(this._item, (item) => {
+        return item.key === key;
+      });
+    }
+  }
+
+  get keys() {
+    return _.map(this._item, (item) => {
+      return item.key;
+    });
   }
 
 }

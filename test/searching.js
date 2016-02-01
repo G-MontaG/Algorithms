@@ -15,9 +15,22 @@ describe('Searching algorithms', () => {
       sequentialSearch = new SequentialSearch();
     });
 
-    it('get value from table by key', () => {
+    it('get/put value from table by key', () => {
       sequentialSearch.put('1', 'first');
       assert.strictEqual('first', sequentialSearch.get('1'));
+    });
+
+    it('delete value from table by key', () => {
+      sequentialSearch.put('1', 'first');
+      sequentialSearch.put('2', 'second');
+      sequentialSearch.delete('2');
+      assert.strictEqual(null, sequentialSearch.get('2'));
+    });
+
+    it('get keys from table', () => {
+      sequentialSearch.put('1', 'first');
+      sequentialSearch.put('2', 'second');
+      assert.deepEqual(['1', '2'], sequentialSearch.keys);
     });
 
   });
