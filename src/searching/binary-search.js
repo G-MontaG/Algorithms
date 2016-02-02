@@ -89,6 +89,7 @@ class BinarySearch {
         return false;
       } else {
         _.pullAt(this._item, i);
+        this._size--;
         return true;
       }
     }
@@ -99,6 +100,7 @@ class BinarySearch {
       return null;
     } else {
       _.pullAt(this._item, 0);
+      this._size--;
       return true;
     }
   }
@@ -108,6 +110,7 @@ class BinarySearch {
       return null;
     } else {
       _.pullAt(this._item, this._size - 1);
+      this._size--;
       return true;
     }
   }
@@ -116,7 +119,7 @@ class BinarySearch {
     if (this.isEmpty()) {
       return null;
     } else {
-      return this._item[0];
+      return this._item[0][0];
     }
   }
 
@@ -124,7 +127,7 @@ class BinarySearch {
     if (this.isEmpty()) {
       return null;
     } else {
-      return this._item[this._size - 1];
+      return this._item[this._size - 1][0];
     }
   }
 

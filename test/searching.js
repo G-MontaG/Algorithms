@@ -75,7 +75,7 @@ describe('Searching algorithms', () => {
 
   });
 
-  describe('Binary search', () => {
+  describe('Symbol table implementation with binary search', () => {
 
     let binarySearch;
 
@@ -95,7 +95,33 @@ describe('Searching algorithms', () => {
       assert.strictEqual(null, binarySearch.get('2'));
     });
 
+    it('removes the smallest key and associated value from this symbol table', () => {
+      binarySearch.put('4', 'fourth');
+      binarySearch.deleteMin();
+      assert.strictEqual(null, binarySearch.get('1'));
+    });
 
+    it('removes the largest key and associated value from this symbol table', () => {
+      binarySearch.put('4', 'fourth');
+      binarySearch.deleteMax();
+      assert.strictEqual(null, binarySearch.get('4'));
+    });
+
+    it('Returns the smallest key in this symbol table', () => {
+      assert.strictEqual('1', binarySearch.min);
+    });
+
+    it('Returns the largest key in this symbol table', () => {
+      assert.strictEqual('3', binarySearch.max);
+    });
+
+    it('Returns the largest key in this symbol table less than or equal to key', () => {
+      assert.strictEqual('2', binarySearch.floor('2.5'));
+    });
+
+    it('Returns the smallest key in this symbol table greater than or equal to key', () => {
+      assert.strictEqual('3', binarySearch.ceiling('2.5'));
+    });
 
     it('get keys from table', () => {
       binarySearch.put('4', 'fourth');
