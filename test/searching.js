@@ -5,6 +5,7 @@ const assert = require('chai').assert;
 
 const SymbolTable = require('../src/searching/symbol-table');
 const SequentialSearch = require('../src/searching/sequential-search');
+const BinarySearch = require('../src/searching/binary-search');
 
 describe('Searching algorithms', () => {
 
@@ -70,6 +71,35 @@ describe('Searching algorithms', () => {
     it('get keys from table', () => {
       sequentialSearch.put('1', 'first');
       assert.deepEqual(['2', '3', '1'], sequentialSearch.keys);
+    });
+
+  });
+
+  describe('Binary search', () => {
+
+    let binarySearch;
+
+    beforeEach(() => {
+      // must be sorted
+      binarySearch = new BinarySearch([['1', 'first'], ['2', 'second'], ['3', 'third']]);
+    });
+
+    it('get/put value from table by key', () => {
+      binarySearch.put('4', 'fourth');
+      assert.strictEqual('fourth', binarySearch.get('4'));
+    });
+
+    it('delete value from table by key', () => {
+      binarySearch.put('4', 'fourth');
+      binarySearch.delete('2');
+      assert.strictEqual(null, binarySearch.get('2'));
+    });
+
+
+
+    it('get keys from table', () => {
+      binarySearch.put('4', 'fourth');
+      assert.deepEqual(['1', '2', '3', '4'], binarySearch.keys);
     });
 
   });

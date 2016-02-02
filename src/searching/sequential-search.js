@@ -33,6 +33,8 @@ class SequentialSearch {
   get(key) {
     if (!key) {
       return null;
+    } else if (this.isEmpty()) {
+      return null;
     } else {
       let getValue = null;
       _.map(this._item, (item) => {
@@ -58,6 +60,7 @@ class SequentialSearch {
 
       if (!findKey) {
         this._item[this._size++] = [key, value];
+        findKey = true;
       }
       return true;
     }
