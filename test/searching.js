@@ -6,6 +6,7 @@ const assert = require('chai').assert;
 const SymbolTable = require('../src/searching/symbol-table');
 const SequentialSearch = require('../src/searching/sequential-search');
 const BinarySearch = require('../src/searching/binary-search');
+const BinarySearchTree = require('../src/searching/binary-search-tree');
 
 describe('Searching algorithms', () => {
 
@@ -126,6 +127,16 @@ describe('Searching algorithms', () => {
     it('get keys from table', () => {
       binarySearch.put('4', 'fourth');
       assert.deepEqual(['1', '2', '3', '4'], binarySearch.keys);
+    });
+
+  });
+
+  describe('A symbol table implemented with a binary search tree', () => {
+
+    let binarySearchTree;
+
+    beforeEach(() => {
+      binarySearchTree = new BinarySearchTree();
     });
 
   });
